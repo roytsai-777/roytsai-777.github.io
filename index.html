@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>光之傳承 · KOUJIN DENSHOU · Legacy of Light</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Shippori+Mincho+B1:wght@400;500;700;800&family=Noto+Serif+JP:wght@300;400;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000000;
+    --black-2:#070503;
+    --black-3:#0f0b06;
+    --gold:#d4a437;
+    --gold-bright:#f5c842;
+    --gold-deep:#8a6a2a;
+    --gold-glow:rgba(245,200,66,0.6);
+    --ember:#ff9933;
+    --mist:rgba(232,208,140,0.7);
+    --paper:#ebe0c0;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Shippori Mincho B1','Noto Serif JP',serif;
+    background:var(--black);
+    color:var(--paper);
+    overflow-x:hidden;
+    line-height:1.8;
+    position:relative;
+  }
+
+  .bg-particles{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 900px 600px at 50% 20%, rgba(212,164,55,0.18), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 20% 80%, rgba(138,106,42,0.15), transparent 60%),
+      radial-gradient(ellipse 600px 400px at 85% 60%, rgba(212,164,55,0.1), transparent 60%);
+  }
+  .bg-dust{
+    position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.5;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.83  0 0 0 0 0.64  0 0 0 0 0.21  0 0 0 0.15 0'/></filter><rect width='400' height='400' filter='url(%23n)'/></svg>");
+    mix-blend-mode:screen;
+  }
+  .bg-vignette{
+    position:fixed;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%);
+  }
+
+  .container{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:0 40px;}
+  @media(max-width:640px){.container{padding:0 20px;}}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:20px 48px;
+    display:flex;justify-content:space-between;align-items:center;
+    background:linear-gradient(180deg, rgba(0,0,0,0.92), rgba(0,0,0,0.4));
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(212,164,55,0.18);
+  }
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand-kanji{
+    font-family:'Noto Serif JP',serif;font-weight:900;font-size:22px;
+    background:linear-gradient(135deg,#fff5c0 0%,#f5c842 40%,#d4a437 70%,#8a6a2a 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    letter-spacing:0.15em;
+  }
+  .brand-en{
+    font-family:'Cinzel',serif;font-weight:600;font-size:10px;
+    letter-spacing:0.35em;color:var(--gold);
+  }
+  .nav-links{display:flex;gap:36px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;}
+  .nav-links a{color:var(--mist);text-decoration:none;transition:all 0.4s;position:relative;font-weight:500;}
+  .nav-links a:hover{color:var(--gold-bright);text-shadow:0 0 12px var(--gold-glow);}
+  .nav-links a::before{content:"◆";margin-right:6px;color:var(--gold);font-size:7px;vertical-align:middle;opacity:0.7;}
+  @media(max-width:800px){.nav-links{display:none;} nav{padding:16px 20px;}}
+
+  /* HERO */
+  .hero{min-height:100vh;padding:140px 0 60px;position:relative;display:flex;flex-direction:column;justify-content:center;}
+  .giant-kanji{
+    position:absolute;right:-60px;top:100px;pointer-events:none;user-select:none;
+    font-family:'Noto Serif JP',serif;font-weight:900;
+    font-size:clamp(280px,40vw,560px);line-height:0.8;
+    background:linear-gradient(180deg, rgba(212,164,55,0.12) 0%, rgba(138,106,42,0.04) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    letter-spacing:-0.05em;writing-mode:vertical-rl;
+  }
+
+  .hero-top{display:flex;align-items:center;gap:16px;margin-bottom:40px;animation:fadeUp 1s ease-out;flex-wrap:wrap;}
+  .hero-top .bar{width:48px;height:1px;background:var(--gold);}
+  .hero-top .label{
+    font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.4em;
+    color:var(--gold);font-weight:600;text-transform:uppercase;
+  }
+  .hero-top .divider{color:var(--gold-deep);}
+  .hero-top .jp{font-family:'Noto Serif JP',serif;color:var(--mist);font-size:12px;letter-spacing:0.25em;}
+
+  .logo-wrap{
+    margin:0 0 32px;position:relative;
+    animation:fadeUp 1.2s ease-out 0.2s both;
+    max-width:680px;
+  }
+  .logo-wrap img{
+    width:100%;height:auto;display:block;
+    filter:drop-shadow(0 8px 40px rgba(212,164,55,0.3));
+  }
+
+  .hero-tagline{
+    max-width:640px;font-size:clamp(16px,1.8vw,20px);line-height:1.95;
+    color:var(--paper);font-weight:400;margin-bottom:56px;
+    animation:fadeUp 1.2s ease-out 0.5s both;
+  }
+  .hero-tagline .em{
+    background:linear-gradient(90deg,#f5c842,#d4a437);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    font-weight:700;
+  }
+
+  .hero-meta{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:32px;
+    padding:32px 0;
+    border-top:1px solid rgba(212,164,55,0.2);
+    border-bottom:1px solid rgba(212,164,55,0.2);
+    animation:fadeUp 1.2s ease-out 0.7s both;
+  }
+  .meta-item{display:flex;flex-direction:column;gap:8px;}
+  .meta-k{
+    font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.3em;
+    color:var(--gold);text-transform:uppercase;font-weight:600;
+  }
+  .meta-v{font-family:'Noto Serif JP',serif;font-weight:700;font-size:18px;color:var(--paper);}
+  .meta-v .au{
+    background:linear-gradient(135deg,#fff5c0,#f5c842,#d4a437);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ===== 圖片框（取代影片） ===== */
+  .img-frame{
+    position:relative;border:1px solid rgba(212,164,55,0.4);
+    background:#000;overflow:hidden;
+  }
+  .img-frame img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform 1.6s cubic-bezier(0.2,0.8,0.2,1), filter 1.2s;
+  }
+  /* 緩慢 Ken-Burns 動態讓圖片不死板 */
+  .img-frame.has-motion img{
+    animation:kenburns 18s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns{
+    0%{transform:scale(1.02) translate(0,0);}
+    100%{transform:scale(1.08) translate(-1%,-1%);}
+  }
+  .img-frame:hover img{filter:brightness(1.1) contrast(1.05);}
+
+  /* 角落金飾 */
+  .img-frame::before,.img-frame::after{
+    content:"";position:absolute;width:32px;height:32px;z-index:3;pointer-events:none;
+    border:2px solid var(--gold-bright);
+  }
+  .img-frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+  .img-frame::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+  .corner{position:absolute;width:32px;height:32px;z-index:3;pointer-events:none;border:2px solid var(--gold-bright);}
+  .corner.tr{top:-1px;right:-1px;border-left:none;border-bottom:none;}
+  .corner.bl{bottom:-1px;left:-1px;border-right:none;border-top:none;}
+
+  /* 標籤 */
+  .tag{
+    position:absolute;top:20px;left:20px;z-index:4;
+    padding:8px 16px;background:rgba(0,0,0,0.75);
+    border:1px solid var(--gold-deep);backdrop-filter:blur(6px);
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.3em;
+    color:var(--gold-bright);text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;
+  }
+  .tag::before{
+    content:"";width:6px;height:6px;background:var(--gold-bright);border-radius:50%;
+    box-shadow:0 0 8px var(--gold-glow);
+  }
+  .tag.ember::before{background:var(--ember);box-shadow:0 0 8px var(--ember);animation:pulse 1.8s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+  /* 圖片說明 */
+  .img-caption{
+    position:absolute;bottom:24px;left:24px;right:24px;z-index:4;
+    display:flex;justify-content:space-between;align-items:flex-end;
+    pointer-events:none;
+  }
+  .img-caption .t{
+    font-family:'Noto Serif JP',serif;font-weight:900;
+    font-size:clamp(18px,2.4vw,28px);color:var(--paper);
+    text-shadow:0 2px 8px rgba(0,0,0,0.8);letter-spacing:0.05em;
+  }
+  .img-caption .s{
+    font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;
+    color:var(--gold-bright);text-transform:uppercase;font-weight:600;
+    text-shadow:0 2px 8px rgba(0,0,0,0.8);
+  }
+
+  .float-text{
+    position:absolute;top:20px;right:20px;z-index:4;
+    font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.2em;
+    color:var(--gold-bright);opacity:0.7;text-align:right;line-height:1.6;
+  }
+
+  /* 主大圖比例 */
+  .feature-img{margin-top:80px;animation:fadeUp 1.4s ease-out 0.9s both;}
+  .feature-img .img-frame{aspect-ratio:16/9;}
+
+  /* 漸變遮罩增加文字可讀性 */
+  .img-frame::after{} /* 保留原本右下角 */
+  .img-overlay{
+    position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,0.65));
+  }
+
+  /* 章節 */
+  section.chapter{padding:160px 0;position:relative;}
+
+  .ch-head{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:40px;
+    margin-bottom:72px;
+  }
+  .ch-no{
+    font-family:'Cinzel',serif;font-weight:900;font-size:96px;line-height:1;
+    background:linear-gradient(180deg,#f5c842 0%,#d4a437 50%,#8a6a2a 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    letter-spacing:-0.02em;
+  }
+  .ch-line{
+    height:1px;background:linear-gradient(90deg,var(--gold-deep),rgba(212,164,55,0.1),transparent);
+    position:relative;
+  }
+  .ch-line::before{
+    content:"";position:absolute;left:0;top:-3px;width:60px;height:7px;
+    background:linear-gradient(90deg,var(--gold-bright),var(--gold));
+    box-shadow:0 0 12px var(--gold-glow);
+  }
+  .ch-jp{
+    writing-mode:vertical-rl;font-family:'Noto Serif JP',serif;font-weight:700;
+    font-size:14px;letter-spacing:0.4em;color:var(--gold);
+  }
+
+  h2.ch-title{
+    font-family:'Noto Serif JP',serif;font-weight:900;
+    font-size:clamp(40px,6vw,72px);line-height:1.15;
+    margin-bottom:48px;letter-spacing:-0.01em;color:var(--paper);max-width:900px;
+  }
+  h2.ch-title .au{
+    background:linear-gradient(135deg,#fff5c0 0%,#f5c842 50%,#d4a437 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  h2.ch-title .underline{position:relative;display:inline-block;}
+  h2.ch-title .underline::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;
+    background:linear-gradient(90deg,var(--gold-bright),transparent);
+  }
+
+  .ch-body{max-width:760px;font-size:18px;line-height:2.1;color:var(--mist);}
+  .ch-body p{margin-bottom:28px;}
+  .ch-body p::first-letter{color:var(--gold-bright);font-size:1.2em;font-weight:700;}
+  .ch-body .em{
+    background:linear-gradient(90deg,#f5c842,#d4a437);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    font-weight:700;
+  }
+
+  .quote{
+    margin:56px 0;padding:28px 0 28px 40px;
+    border-left:2px solid var(--gold);
+    font-family:'Noto Serif JP',serif;font-weight:700;
+    font-size:24px;line-height:1.7;color:var(--paper);
+    max-width:800px;position:relative;
+    background:linear-gradient(90deg,rgba(212,164,55,0.08),transparent);
+  }
+  .quote::before{
+    content:"「";position:absolute;left:12px;top:8px;
+    font-size:56px;color:var(--gold);font-weight:900;line-height:1;opacity:0.7;
+  }
+  .quote-body{padding-left:24px;}
+
+  /* Split（雙欄） */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .split.reverse .split-media{order:2;}
+  @media(max-width:900px){
+    .split,.split.reverse{grid-template-columns:1fr;gap:40px;}
+    .split.reverse .split-media{order:0;}
+  }
+  .split-media{position:relative;aspect-ratio:16/9;}
+  .split-media .img-frame{height:100%;}
+
+  /* 卡片 */
+  .cards{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;
+    margin:72px 0 40px;
+  }
+  .card{
+    position:relative;padding:36px 28px;
+    background:linear-gradient(180deg, rgba(15,11,6,0.9), rgba(7,5,3,0.95));
+    border:1px solid rgba(212,164,55,0.3);
+    overflow:hidden;transition:all 0.5s;
+  }
+  .card::before{
+    content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(245,200,66,0.12),transparent);
+    transition:left 0.9s;
+  }
+  .card:hover{border-color:var(--gold-bright);transform:translateY(-4px);box-shadow:0 10px 40px rgba(212,164,55,0.15);}
+  .card:hover::before{left:100%;}
+
+  .card-no{
+    display:flex;align-items:center;gap:12px;
+    font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.3em;
+    color:var(--gold);text-transform:uppercase;margin-bottom:24px;
+  }
+  .card-no::after{content:"";flex:1;height:1px;background:rgba(212,164,55,0.25);}
+
+  .card-kanji{
+    font-family:'Noto Serif JP',serif;font-weight:900;
+    font-size:72px;line-height:1;margin-bottom:12px;
+    background:linear-gradient(135deg,#fff5c0 0%,#f5c842 40%,#d4a437 70%,#8a6a2a 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    text-shadow:0 0 30px rgba(212,164,55,0.3);
+  }
+  .card-en{
+    font-family:'Cinzel',serif;font-style:italic;font-weight:400;
+    font-size:14px;color:var(--gold);letter-spacing:0.15em;margin-bottom:20px;
+    padding-bottom:20px;border-bottom:1px solid rgba(212,164,55,0.2);
+  }
+  .card-desc{font-size:14.5px;line-height:1.9;color:var(--mist);}
+
+  /* 核心儀式區 */
+  .ritual{
+    background:
+      radial-gradient(ellipse 1200px 700px at center, rgba(212,164,55,0.1), transparent 70%),
+      linear-gradient(180deg, var(--black) 0%, var(--black-3) 50%, var(--black) 100%);
+    position:relative;overflow:hidden;
+  }
+
+  /* 歡迎面板 */
+  .welcome{
+    margin-top:100px;padding:100px 48px;position:relative;
+    background:
+      radial-gradient(ellipse at center, rgba(212,164,55,0.12), transparent 70%),
+      linear-gradient(180deg, var(--black-3), var(--black));
+    border-top:1px solid rgba(212,164,55,0.3);
+    border-bottom:1px solid rgba(212,164,55,0.3);
+    text-align:center;overflow:hidden;
+  }
+  .welcome::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:0.5;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence baseFrequency='0.7' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.96  0 0 0 0 0.78  0 0 0 0 0.26  0 0 0 0.12 0'/></filter><rect width='400' height='400' filter='url(%23n)'/></svg>");
+    mix-blend-mode:screen;
+  }
+  .welcome-inner{position:relative;z-index:2;}
+
+  .welcome-label{
+    display:inline-flex;align-items:center;gap:14px;
+    font-family:'Cinzel',serif;font-style:italic;font-weight:500;
+    font-size:13px;letter-spacing:0.4em;color:var(--gold);
+    margin-bottom:36px;text-transform:uppercase;
+  }
+  .welcome-label::before,.welcome-label::after{content:"";width:40px;height:1px;background:var(--gold);}
+
+  .welcome-main{
+    font-family:'Noto Serif JP',serif;font-weight:900;
+    font-size:clamp(32px,5vw,64px);line-height:1.3;
+    background:linear-gradient(135deg,#fff5c0 0%,#f5c842 30%,#d4a437 60%,#8a6a2a 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    letter-spacing:0.04em;margin-bottom:28px;
+    filter:drop-shadow(0 4px 30px rgba(245,200,66,0.4));
+  }
+  .welcome-en{
+    font-family:'Cinzel',serif;font-style:italic;font-weight:400;
+    font-size:15px;letter-spacing:0.3em;color:var(--mist);text-transform:uppercase;
+  }
+
+  .signature{
+    display:flex;justify-content:flex-end;align-items:center;gap:24px;margin-top:72px;
+  }
+  .sig-name{
+    font-family:'Noto Serif JP',serif;font-weight:700;font-size:17px;
+    color:var(--paper);letter-spacing:0.25em;
+  }
+  .sig-seal{
+    width:64px;height:64px;display:grid;place-items:center;
+    background:linear-gradient(135deg,#d4a437,#8a6a2a);
+    color:var(--black);font-family:'Noto Serif JP',serif;font-weight:900;font-size:26px;
+    transform:rotate(-5deg);
+    box-shadow:0 4px 20px rgba(212,164,55,0.4);
+    border:2px solid var(--gold-bright);
+  }
+
+  footer{
+    padding:100px 0 60px;text-align:center;position:relative;z-index:10;
+    border-top:1px solid rgba(212,164,55,0.18);
+    background:linear-gradient(180deg,transparent,rgba(0,0,0,0.6));
+  }
+  .foot-kanji{
+    font-family:'Noto Serif JP',serif;font-weight:300;font-size:24px;
+    letter-spacing:1em;padding-left:1em;margin-bottom:20px;
+    background:linear-gradient(135deg,#f5c842,#d4a437,#8a6a2a);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .foot-en{
+    font-family:'Cinzel',serif;font-style:italic;font-weight:400;
+    font-size:11px;letter-spacing:0.4em;color:var(--mist);text-transform:uppercase;
+  }
+  .foot-dot{display:inline-block;margin:0 12px;color:var(--gold-deep);}
+
+  .progress{
+    position:fixed;top:0;left:0;height:2px;z-index:200;width:0;
+    background:linear-gradient(90deg,var(--gold-bright),var(--gold),var(--ember));
+    box-shadow:0 0 10px var(--gold-glow);transition:width 0.08s;
+  }
+
+  .reveal{opacity:0;transform:translateY(40px);transition:all 1.1s cubic-bezier(0.2,0.8,0.2,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="bg-particles"></div>
+<div class="bg-dust"></div>
+<div class="bg-vignette"></div>
+
+<div class="progress" id="progress"></div>
+
+<nav>
+  <div class="brand">
+    <span class="brand-kanji">光之傳承</span>
+    <span class="brand-en">KOUJIN DENSHOU</span>
+  </div>
+  <div class="nav-links">
+    <a href="#ch1">Prologue</a>
+    <a href="#ch2">Awakening</a>
+    <a href="#ch3">Ritual</a>
+    <a href="#ch4">Legacy</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="giant-kanji">光</div>
+  <div class="container">
+
+    <div class="hero-top">
+      <span class="bar"></span>
+      <span class="label">Legacy of Light</span>
+      <span class="divider">◆</span>
+      <span class="jp">デジタル武士道</span>
+      <span class="divider">◆</span>
+      <span class="label">Codex 0001</span>
+    </div>
+
+    <div class="logo-wrap">
+      <img src="media/logo.png" alt="光之傳承 KOUJIN DENSHOU · Legacy of Light" />
+    </div>
+
+    <p class="hero-tagline">
+      一名現代武士血脈的後裔，戴上「身分核心」的那一刻，
+      全息殿堂於他眼前展開——<span class="em">鋼鐵已鈍，血脈未冷</span>。
+      萬點榮譽化作隱形數位鎧甲，金色光刃應聲而出，
+      武士精神以數字光芒，在未來繼續閃耀。
+    </p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-k">Protagonist</span>
+        <span class="meta-v">田中 研一</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-k">Rank</span>
+        <span class="meta-v"><span class="au">大名</span> · Daimyō</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-k">Honor Points</span>
+        <span class="meta-v"><span class="au">10,000</span></span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-k">Status</span>
+        <span class="meta-v">光刃已握</span>
+      </div>
+    </div>
+
+    <!-- 主場景圖 -->
+    <div class="feature-img">
+      <div class="img-frame has-motion">
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="tag ember">LIVE · SCENE 01 / 光之殿堂</span>
+        <div class="float-text">
+          SYS.CORE [OK]<br/>
+          DAIMYŌ CERTIFIED<br/>
+          HP · 10,000
+        </div>
+
+        <img src="media/img_poster.jpg" alt="光之殿堂主場景" loading="eager" />
+        <div class="img-overlay"></div>
+
+        <div class="img-caption">
+          <div class="t">光之殿堂<br/><span style="font-size:0.55em;font-weight:400;color:var(--gold-bright);letter-spacing:0.3em;">THE LUMINOUS HALL</span></div>
+          <div class="s">Koujin Denshou · I</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- 章節 I -->
+<section class="chapter" id="ch1">
+  <div class="container reveal">
+    <div class="ch-head">
+      <span class="ch-no">I</span>
+      <div class="ch-line"></div>
+      <span class="ch-jp">背景與掙扎</span>
+    </div>
+
+    <div class="split reverse">
+      <div>
+        <h2 class="ch-title">鋼鐵已鈍，<br/><span class="au">血脈未冷</span></h2>
+        <div class="ch-body">
+          <p>我叫田中研一。體內流著武士的血脈——那是祖輩百年來最引以為傲的印記。但我比任何人都清楚：在這個由數據、雲端與演算法編織的時代，鋼鐵刀刃已經保護不了家族的名譽。</p>
+          <p>父親掛在牆上的那把打刀，不再是守護的象徵，而是玻璃櫃裡的遺物。我看著城市的光穿過老宅的窗——<span class="em">傳承，需要一種全新的方式</span>。</p>
+        </div>
+      </div>
+      <div class="split-media">
+        <div class="img-frame has-motion">
+          <span class="tag">PORTRAIT · 01</span>
+          <img src="media/img_portrait.jpg" alt="田中研一 肖像" loading="lazy" />
+          <div class="img-overlay"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote"><div class="quote-body">刀鋒可以生鏽，精神不能。家族的重量，得以新的形式承擔下去。」</div></div>
+  </div>
+</section>
+
+<!-- 章節 II -->
+<section class="chapter" id="ch2" style="background:linear-gradient(180deg,transparent,rgba(15,11,6,0.5),transparent);">
+  <div class="container reveal">
+    <div class="ch-head">
+      <span class="ch-no">II</span>
+      <div class="ch-line"></div>
+      <span class="ch-jp">身分核心</span>
+    </div>
+
+    <div class="split">
+      <div class="split-media">
+        <div class="img-frame has-motion">
+          <span class="tag">MACRO · IDENTITY CORE</span>
+          <img src="media/img_badge.jpg" alt="身分核心 胸章特寫" loading="lazy" />
+          <div class="img-overlay"></div>
+        </div>
+      </div>
+      <div>
+        <h2 class="ch-title">身分核心，<span class="au underline">靜靜甦醒</span></h2>
+        <div class="ch-body">
+          <p>直到我戴上這枚「身分核心」。當它在胸口激發感應——全息投影在我面前靜靜展開。那不是冰冷的介面，而是家紋、家訓、歷代祖先的名錄，一層一層從虛空中浮現。</p>
+          <p>我明白了：這不只是科技產品，而是<span class="em">承接家族重量的數位靈魂</span>。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-no">I</div>
+        <div class="card-kanji">核</div>
+        <div class="card-en">Identity Core</div>
+        <div class="card-desc">胸口感應啟動，家紋於光中綻放。身分自此被數位見證。</div>
+      </div>
+      <div class="card">
+        <div class="card-no">II</div>
+        <div class="card-kanji">鎧</div>
+        <div class="card-en">10,000 Honor</div>
+        <div class="card-desc">萬點榮譽化作隱形之甲。無重量，卻比鋼鐵更沉著。</div>
+      </div>
+      <div class="card">
+        <div class="card-no">III</div>
+        <div class="card-kanji">名</div>
+        <div class="card-en">Rank · Daimyō</div>
+        <div class="card-desc">系統認證的最高封號：大名。非戰功，乃承續。</div>
+      </div>
+      <div class="card">
+        <div class="card-no">IV</div>
+        <div class="card-kanji">光</div>
+        <div class="card-en">Luminous Blade</div>
+        <div class="card-desc">金色光刃應聲而出。不再飲血，而是溝通的儀式。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 章節 III -->
+<section class="chapter ritual" id="ch3">
+  <div class="container reveal">
+    <div class="ch-head">
+      <span class="ch-no">III</span>
+      <div class="ch-line"></div>
+      <span class="ch-jp">核心儀式</span>
+    </div>
+
+    <div class="split reverse">
+      <div>
+        <h2 class="ch-title">光刃，<br/><span class="au underline">應聲而出</span></h2>
+        <div class="ch-body">
+          <p>系統確認我的大名級別——那一萬點榮譽，就像為我穿上一層看不見的數位鎧甲。它沒有重量，卻比任何鋼鐵都更沉著。</p>
+          <p>我揮動手臂，<span class="em">金色光刃應聲而出</span>。這把刀不再用來砍殺，而是與世界溝通的崇高儀式。每一道劃過空氣的弧線，都是一段代碼、一聲承諾。</p>
+        </div>
+      </div>
+      <div class="split-media">
+        <div class="img-frame has-motion">
+          <span class="tag">BLADE · DATA-FORGED</span>
+          <img src="media/img_blade.jpg" alt="光刃 背影" loading="lazy" />
+          <div class="img-overlay"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:80px;">
+      <div class="split-media">
+        <div class="img-frame has-motion">
+          <span class="tag">CONTACT · HONOR 10,000</span>
+          <img src="media/img_honor.jpg" alt="10,000 榮譽點數" loading="lazy" />
+          <div class="img-overlay"></div>
+        </div>
+      </div>
+      <div>
+        <div class="ch-body">
+          <p>指尖輕觸，10,000 點榮譽數字在全息介面上點亮。每一筆，都是祖輩走過的路；每一道光，都是家族的記憶。</p>
+          <div class="quote" style="margin:32px 0;"><div class="quote-body">刃不再飲血，<br/>它點亮言語。」</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 章節 IV -->
+<section class="chapter" id="ch4">
+  <div class="container reveal">
+    <div class="ch-head">
+      <span class="ch-no">IV</span>
+      <div class="ch-line"></div>
+      <span class="ch-jp">驚喜與體悟</span>
+    </div>
+
+    <h2 class="ch-title">利刃，<span class="au underline">已化作光芒</span></h2>
+    <div class="ch-body" style="max-width:900px;">
+      <p>當我踏入那座宏偉的殿堂——四方的數位光幕同步亮起，將我的名字、位階、家紋靜靜投射在空中。然後，它們一齊映出致詞：</p>
+    </div>
+
+    <div class="feature-img" style="margin-top:40px;">
+      <div class="img-frame has-motion">
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="tag">WIDE · 光之殿堂 · ENTRY</span>
+        <img src="media/img_hall.jpg" alt="踏入殿堂" loading="lazy" />
+        <div class="img-overlay"></div>
+        <div class="img-caption">
+          <div class="t">踏入殿堂</div>
+          <div class="s">A Grand Entrance</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="welcome">
+      <div class="welcome-inner">
+        <div class="welcome-label">◆ Holographic Greeting · 全息致詞 ◆</div>
+        <div class="welcome-main">田中大名<br/>歡迎踏上光之傳承</div>
+        <div class="welcome-en">Welcome, Lord Tanaka · Ascend to the Legacy of Light</div>
+      </div>
+    </div>
+
+    <div class="ch-body" style="margin-top:80px;">
+      <p>那一瞬間，我才真正體悟——</p>
+      <div class="quote"><div class="quote-body">武士精神不需沉睡在過往，<br/>它正用代碼，在未來繼續閃耀。</div></div>
+
+      <div class="signature">
+        <span class="sig-name">田中研一 謹記</span>
+        <div class="sig-seal">光</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-kanji">光 · 傳 · 承</div>
+    <div class="foot-en">
+      Koujin Denshou <span class="foot-dot">◆</span> Legacy of Light <span class="foot-dot">◆</span> Digital Bushidō Codex 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    progress.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
