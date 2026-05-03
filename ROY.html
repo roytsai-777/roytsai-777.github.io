@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<!-- saved from url=(0322)file:///C:/Users/caiyu/AppData/Local/Packages/Claude_pzs8sxrjxfjjc/LocalCache/Roaming/Claude/local-agent-mode-sessions/abf67a4d-b75d-415e-b884-9ccfc7af4ec8/d350f8aa-248c-42f4-ad44-73be59ff4fcd/local_ad27c4b4-de49-4765-bbb7-aeb052eadc99/outputs/%E6%AD%A5%E5%BE%8B%E7%94%9F%E6%A9%9F_%E6%8A%95%E8%B3%87%E7%B0%A1%E5%A0%B1.html -->
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>步律生機 ・ 投資人簡報</title>
+<style>
+  :root {
+    --bg: #000000;
+    --bg-soft: #0a0a0c;
+    --bg-card: #111114;
+    --text: #f5f5f7;
+    --text-mute: #a1a1a6;
+    --text-dim: #6e6e73;
+    --gold: #d4a857;
+    --gold-soft: #e8c074;
+    --brand: #ffd166;
+    --accent: #06b6d4;
+    --green: #10b981;
+    --rose: #f43f5e;
+    --blue-blob: #3b82f6;
+    --line: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  section {
+    min-height: 100vh;
+    padding: 110px 8vw 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  section.compact { min-height: auto; padding: 100px 8vw; }
+  .eyebrow {
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(48px, 8vw, 96px); line-height: 1.05; letter-spacing: -0.03em; }
+  h2 { font-size: clamp(36px, 5vw, 64px); line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; }
+  h3 { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.3; margin-bottom: 16px; }
+  p { color: var(--text-mute); font-size: clamp(16px, 1.2vw, 18px); }
+  p.lead { color: var(--text); font-size: clamp(20px, 1.6vw, 26px); line-height: 1.5; max-width: 900px; }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    backdrop-filter: blur(20px);
+    background: rgba(0,0,0,0.6);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 8vw;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 14px;
+  }
+  nav .brand { font-weight: 600; letter-spacing: 2px; }
+  nav .brand span { color: var(--gold); }
+  nav .pages { color: var(--text-dim); letter-spacing: 1px; }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    background: radial-gradient(ellipse at top, rgba(212,168,87,0.12), transparent 60%),
+                radial-gradient(ellipse at bottom, rgba(6,182,212,0.06), transparent 70%);
+  }
+  .hero h1 .accent { color: var(--gold); }
+  .hero .tagline {
+    font-size: clamp(22px, 2.4vw, 32px);
+    color: var(--text);
+    font-weight: 300;
+    margin-top: 32px;
+    letter-spacing: 0.02em;
+  }
+  .hero .sub {
+    color: var(--text-dim);
+    margin-top: 16px;
+    letter-spacing: 0.3em;
+    font-size: 13px;
+  }
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    color: var(--text-dim); font-size: 12px; letter-spacing: 3px;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.6; }
+    50% { transform: translate(-50%, -8px); opacity: 1; }
+  }
+
+  /* Two column */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* Highlight cards */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  @media (max-width: 900px) {
+    .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: transform .3s, border-color .3s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(212,168,87,0.4); }
+  .card .num {
+    color: var(--gold); font-size: 14px; letter-spacing: 3px; margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .card h3 { color: var(--text); font-size: 22px; margin-bottom: 12px; }
+  .card p { font-size: 15px; line-height: 1.7; }
+  .card .icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(212,168,87,0.15), rgba(212,168,87,0.05));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; font-size: 22px;
+  }
+
+  /* Pain × Feature table */
+  .pain-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 40px;
+    font-size: 15px;
+  }
+  .pain-table th, .pain-table td {
+    padding: 20px 22px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .pain-table thead th {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--gold);
+  }
+  .pain-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+  .pain-table .pain { color: var(--rose); font-weight: 500; }
+  .pain-table .feat { color: var(--text); font-weight: 600; }
+  .pain-table .solv { color: var(--text-mute); }
+
+  /* Daily/Weekly report layout */
+  .report-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 32px;
+    align-items: stretch;
+    margin-top: 48px;
+  }
+  .report-card {
+    background: linear-gradient(180deg, var(--bg-card), #0a0a0c);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 36px;
+  }
+  .report-card.daily { border-left: 3px solid var(--accent); }
+  .report-card.weekly { border-left: 3px solid var(--gold); }
+  .report-card h3 { color: var(--text); }
+  .report-card .label {
+    color: var(--text-dim); font-size: 12px; letter-spacing: 3px; margin-bottom: 8px;
+  }
+  .report-card ul { list-style: none; margin-top: 20px; }
+  .report-card li {
+    color: var(--text-mute);
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 15px;
+    display: flex; justify-content: space-between; gap: 16px;
+  }
+  .report-card li:last-child { border-bottom: none; }
+  .report-card li span:first-child { color: var(--text); }
+  .report-card li span:last-child { color: var(--text-dim); font-size: 13px; }
+  .arrow-mid {
+    align-self: center;
+    color: var(--gold);
+    font-size: 32px;
+    text-align: center;
+    padding: 0 8px;
+  }
+  @media (max-width: 900px) {
+    .report-flow { grid-template-columns: 1fr; }
+    .arrow-mid { transform: rotate(90deg); padding: 8px 0; }
+  }
+
+  /* Walking benefits */
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  @media (max-width: 900px) { .benefit-grid { grid-template-columns: 1fr 1fr; } }
+  .benefit {
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    text-align: center;
+  }
+  .benefit .b-icon { font-size: 28px; margin-bottom: 12px; }
+  .benefit .b-title { color: var(--text); font-weight: 600; margin-bottom: 6px; }
+  .benefit .b-desc { color: var(--text-dim); font-size: 13px; line-height: 1.6; }
+
+  /* Perceptual map */
+  .perceptual-wrap {
+    background: linear-gradient(180deg, #0a0a0c, #050507);
+    border-radius: 24px;
+    padding: 48px 40px;
+    margin-top: 48px;
+    border: 1px solid var(--line);
+  }
+  .perceptual-svg { width: 100%; height: auto; max-width: 1100px; margin: 0 auto; display: block; }
+  .legend {
+    display: flex; gap: 32px; justify-content: center; margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-mute); }
+  .legend-dot { width: 14px; height: 14px; border-radius: 50%; }
+
+  /* Comparison table */
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px;
+    margin-top: 40px;
+  }
+  .compare-table th, .compare-table td {
+    padding: 18px 16px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  .compare-table thead th {
+    background: var(--bg-card);
+    color: var(--text);
+    font-weight: 600;
+    border-top: 3px solid transparent;
+  }
+  .compare-table thead th.us { background: linear-gradient(180deg, rgba(212,168,87,0.25), rgba(212,168,87,0.08)); border-top: 3px solid var(--gold); color: var(--gold-soft); }
+  .compare-table thead th.t1 { border-top: 3px solid var(--blue-blob); }
+  .compare-table thead th.t2 { border-top: 3px solid var(--accent); }
+  .compare-table thead th.t3 { border-top: 3px solid var(--rose); }
+  .compare-table tbody td:first-child {
+    text-align: left;
+    color: var(--text-mute);
+    background: rgba(255,255,255,0.02);
+    font-weight: 500;
+  }
+  .compare-table tbody td.us {
+    background: linear-gradient(180deg, rgba(212,168,87,0.18), rgba(212,168,87,0.06));
+    color: var(--gold-soft);
+    font-weight: 600;
+  }
+  .compare-table tbody td.yes { background: rgba(16,185,129,0.12); color: var(--green); }
+  .compare-table tbody td.partial { background: rgba(245,158,11,0.10); color: #fbbf24; }
+  .compare-table tbody td.no { background: rgba(244,63,94,0.10); color: var(--rose); }
+  .compare-table tbody td { background: var(--bg-card); color: var(--text-mute); }
+
+  /* Discount table */
+  .discount-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 40px;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+  }
+  .discount-table th, .discount-table td {
+    padding: 22px 24px;
+    text-align: left;
+    font-size: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .discount-table thead th {
+    background: var(--bg-card);
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+  .discount-table tbody tr { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.01)); transition: background .2s; }
+  .discount-table tbody tr:hover { background: rgba(212,168,87,0.05); }
+  .discount-table .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .discount-table .b1 { background: rgba(96,165,250,0.15); color: #93c5fd; }
+  .discount-table .b2 { background: rgba(34,211,238,0.15); color: #67e8f9; }
+  .discount-table .b3 { background: rgba(16,185,129,0.18); color: #6ee7b7; }
+  .discount-table .b4 { background: rgba(251,191,36,0.18); color: #fcd34d; }
+  .discount-table .b5 { background: rgba(249,115,22,0.18); color: #fdba74; }
+  .discount-table .b6 { background: linear-gradient(90deg, rgba(212,168,87,0.5), rgba(244,63,94,0.4)); color: #fff; box-shadow: 0 0 20px rgba(212,168,87,0.3); }
+  .discount-bar {
+    height: 8px; border-radius: 4px;
+    background: rgba(255,255,255,0.05);
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .discount-bar > div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--gold), var(--rose));
+    border-radius: 4px;
+  }
+
+  /* Market test stages */
+  .stage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  @media (max-width: 900px) { .stage-grid { grid-template-columns: 1fr; } }
+  .stage {
+    background: var(--bg-card);
+    border-radius: 18px;
+    padding: 32px;
+    border-top: 4px solid;
+    position: relative;
+  }
+  .stage.s1 { border-color: #60a5fa; }
+  .stage.s2 { border-color: var(--accent); }
+  .stage.s3 { border-color: var(--gold); }
+  .stage .stage-num {
+    color: var(--text-dim); font-size: 12px; letter-spacing: 3px; margin-bottom: 8px;
+  }
+  .stage h3 { font-size: 22px; }
+  .stage .meta {
+    font-size: 13px; color: var(--text-dim);
+    margin: 8px 0 20px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+  }
+  .stage ul { list-style: none; }
+  .stage li {
+    padding: 8px 0; font-size: 14px; color: var(--text-mute);
+    border-bottom: 1px dashed var(--line);
+    display: flex; align-items: start; gap: 8px;
+  }
+  .stage li:last-child { border-bottom: none; }
+  .stage li::before {
+    content: "▸"; color: var(--gold); flex-shrink: 0;
+  }
+  .stage .kpi {
+    margin-top: 20px;
+    padding: 14px;
+    background: rgba(212,168,87,0.06);
+    border: 1px solid rgba(212,168,87,0.15);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--gold-soft);
+  }
+
+  /* 7 safe directions */
+  .safe-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  @media (max-width: 1000px) { .safe-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .safe-grid { grid-template-columns: 1fr; } }
+  .safe-card {
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .safe-card::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .safe-card.c1::before { background: #60a5fa; }
+  .safe-card.c2::before { background: #34d399; }
+  .safe-card.c3::before { background: #fbbf24; }
+  .safe-card.c4::before { background: #f472b6; }
+  .safe-card.c5::before { background: #a78bfa; }
+  .safe-card.c6::before { background: #22d3ee; }
+  .safe-card.c7::before { background: var(--gold); }
+  .safe-card .sn {
+    font-size: 36px; font-weight: 700;
+    background: linear-gradient(135deg, var(--gold), var(--rose));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .safe-card h4 { font-size: 17px; color: var(--text); margin-bottom: 10px; line-height: 1.4; }
+  .safe-card p { font-size: 13px; line-height: 1.7; color: var(--text-dim); }
+  .safe-card .swap {
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .safe-card .swap .bad { color: var(--rose); text-decoration: line-through; }
+  .safe-card .swap .good { color: var(--green); }
+
+  /* Closing */
+  .closing {
+    text-align: center;
+    background: radial-gradient(ellipse at center, rgba(212,168,87,0.12), transparent 65%);
+  }
+  .closing .quote {
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    max-width: 1100px;
+    margin: 0 auto;
+    color: var(--text);
+  }
+  .closing .quote span.accent { color: var(--gold); }
+  .closing .author {
+    margin-top: 40px;
+    color: var(--text-dim);
+    letter-spacing: 4px;
+    font-size: 14px;
+  }
+
+  /* MVP phone mock */
+  .phone-mock {
+    width: 280px; height: 560px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #1a1a1d, #0a0a0c);
+    border: 2px solid #222;
+    border-radius: 36px;
+    padding: 12px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 30px rgba(212,168,87,0.05);
+    position: relative;
+  }
+  .phone-screen {
+    width: 100%; height: 100%;
+    background: linear-gradient(180deg, #050507, #0f0f12);
+    border-radius: 28px;
+    padding: 28px 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-screen::before {
+    content: "";
+    position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 22px; background: #000; border-radius: 12px;
+  }
+  .ps-greet { color: var(--text-dim); font-size: 11px; letter-spacing: 2px; margin-top: 30px; }
+  .ps-name { color: var(--text); font-size: 18px; font-weight: 600; margin-top: 4px; }
+  .ps-ring {
+    width: 140px; height: 140px;
+    margin: 28px auto;
+    border-radius: 50%;
+    background: conic-gradient(var(--gold) 0% 72%, rgba(255,255,255,0.05) 72% 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .ps-ring::before {
+    content: ""; position: absolute; inset: 12px;
+    background: #050507; border-radius: 50%;
+  }
+  .ps-ring-text { position: relative; text-align: center; }
+  .ps-ring-text .step { color: var(--gold); font-size: 26px; font-weight: 700; }
+  .ps-ring-text .label { color: var(--text-dim); font-size: 10px; letter-spacing: 2px; }
+  .ps-disc {
+    margin: 0 14px;
+    background: linear-gradient(90deg, rgba(212,168,87,0.15), rgba(244,63,94,0.10));
+    border: 1px solid rgba(212,168,87,0.3);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 11px;
+    color: var(--gold-soft);
+    text-align: center;
+  }
+  .ps-disc .big { font-size: 22px; color: var(--gold); font-weight: 700; display: block; }
+
+  /* Highlights chips */
+  .chips {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-top: 24px;
+  }
+  .chip {
+    background: rgba(212,168,87,0.08);
+    border: 1px solid rgba(212,168,87,0.25);
+    color: var(--gold-soft);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+  }
+
+  /* Section number indicator */
+  .sec-no {
+    color: var(--text-dim);
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-family: "SF Mono", monospace;
+  }
+
+  /* Definition note */
+  .note {
+    margin-top: 32px;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.02);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    font-size: 14px;
+    color: var(--text-mute);
+    line-height: 1.7;
+  }
+
+  /* Footer */
+  footer {
+    padding: 60px 8vw;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-top: 1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">步律生機 ・ <span>BU LU SHENG JI</span></div>
+  <div class="pages">INVESTOR DECK ・ 2026</div>
+</nav>
+
+<!-- 01 HERO -->
+<section class="hero" id="hero">
+  <div class="sub">A NEW SUBSCRIPTION OF WALKING &amp; WELLNESS</div>
+  <h1>每一步,<br>都是<span class="accent">下一瓶的折扣</span>。</h1>
+  <p class="tagline">步律生機 — 全球第一款讓「走路」決定保健補給價值的訂閱制平台。</p>
+  <div class="scroll-hint">SCROLL ↓</div>
+</section>
+
+<!-- 02 VISION -->
+<section id="vision">
+  <div class="eyebrow">01 ・ 願景</div>
+  <h2>讓「走路」<br>成為人人願意維持的日常。</h2>
+  <p class="lead">
+    我們相信:健康不是吞下去的,是走出來的。<br>
+    步律生機把「走路」、「每日健康回報」與「保健訂閱」串成一個閉環 —
+    用戶走得越多、回報越誠實,系統就越懂他,補給就越精準、越便宜。
+  </p>
+  <div class="chips">
+    <div class="chip">行為驅動訂閱</div>
+    <div class="chip">即時健康回饋</div>
+    <div class="chip">個人化補給</div>
+    <div class="chip">高黏著閉環</div>
+  </div>
+</section>
+
+<!-- 03 CORE HIGHLIGHTS -->
+<section id="highlights">
+  <div class="eyebrow">02 ・ 核心亮點</div>
+  <h2>四個別人沒有的設計。</h2>
+  <p class="lead">不是再做一個走路 App,也不是再賣一罐保健品 — 而是把兩者用「行為 × 折扣 × 數據」綁在一起。</p>
+  <div class="grid-4">
+    <div class="card">
+      <div class="icon">①</div>
+      <div class="num">CORE 01</div>
+      <h3>走路換折扣</h3>
+      <p>每日步數達標即累積折扣積分,連續打卡升級榮譽,從九折一路解鎖到最高榮譽六折。</p>
+    </div>
+    <div class="card">
+      <div class="icon">②</div>
+      <div class="num">CORE 02</div>
+      <h3>每日 / 每週回報</h3>
+      <p>30 秒填完的每日簡報、每週圖像化趨勢,讓「保健品有沒有感」第一次被量化。</p>
+    </div>
+    <div class="card">
+      <div class="icon">③</div>
+      <div class="num">CORE 03</div>
+      <h3>行為驅動的個人化</h3>
+      <p>步數、睡眠、精神、消化四維度回饋,系統動態調整下個月該補什麼、補多少。</p>
+    </div>
+    <div class="card">
+      <div class="icon">④</div>
+      <div class="num">CORE 04</div>
+      <h3>越用越省的訂閱</h3>
+      <p>傳統訂閱「越久越無感」,我們的訂閱「越久越划算」— 用戶捨不得停。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 MVP -->
+<section id="mvp">
+  <div class="eyebrow">03 ・ 最小可行產品</div>
+  <div class="two-col">
+    <div>
+      <h2>MVP 三大模組,<br>一支 App 全包。</h2>
+      <p class="lead">先做最少、跑最快、收最真的回饋 —<br>第一版只做三件事,但每一件都做到位。</p>
+      <div class="chips" style="margin-top: 32px;">
+        <div class="chip">① 步數追蹤</div>
+        <div class="chip">② 健康回報</div>
+        <div class="chip">③ 折扣引擎</div>
+      </div>
+      <div class="note">
+        <strong style="color:var(--gold-soft)">為什麼是這三個?</strong><br>
+        步數模組驗證行為留存,回報模組驗證量化感受,折扣引擎驗證商業意願 —
+        三個模組打中投資人最想看的三個指標。
+      </div>
+    </div>
+    <div>
+      <div class="phone-mock">
+        <div class="phone-screen">
+          <div class="ps-greet">早安</div>
+          <div class="ps-name">承璋,今天再 3,200 步達標</div>
+          <div class="ps-ring">
+            <div class="ps-ring-text">
+              <div class="step">7,238</div>
+              <div class="label">/ 10,000 STEPS</div>
+            </div>
+          </div>
+          <div class="ps-disc">
+            目前榮譽等級
+            <span class="big">8 折</span>
+            連續打卡 24 天
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PAIN × FEATURES -->
+<section id="pain" class="compact">
+  <div class="eyebrow">04 ・ 功能 × 痛點</div>
+  <h2>用戶說痛,我們給藥。</h2>
+  <p class="lead">每一個功能,都對應一個我們在使用者訪談中聽過上百次的痛點。</p>
+  <table class="pain-table">
+    <thead>
+      <tr>
+        <th style="width: 28%;">目標客戶痛點</th>
+        <th style="width: 28%;">對應功能</th>
+        <th>解決方式</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="pain">「我吃了一年保健品,不知道有沒有效。」</td>
+        <td class="feat">每週健康趨勢回報</td>
+        <td class="solv">把睡眠、精神、消化、體力以折線圖呈現,讓「感覺」第一次有刻度。</td>
+      </tr>
+      <tr>
+        <td class="pain">「我知道走路好,但我就懶。」</td>
+        <td class="feat">折扣解鎖 × 連續打卡</td>
+        <td class="solv">用經濟誘因取代意志力 — 下個月省多少,今天就要走多少。</td>
+      </tr>
+      <tr>
+        <td class="pain">「保健品都長一樣,不知道哪罐適合我。」</td>
+        <td class="feat">行為驅動補給推薦</td>
+        <td class="solv">回報數據反推適合配方,每月動態調整,不再千人一罐。</td>
+      </tr>
+      <tr>
+        <td class="pain">「訂閱沒安全感,怕綁住又用不到。」</td>
+        <td class="feat">榮譽折扣終身保留</td>
+        <td class="solv">越用越省、隨時可暫停,折扣等級不歸零 — 比解約更貴的是離開。</td>
+      </tr>
+      <tr>
+        <td class="pain">「保健資訊太雜,我看不懂。」</td>
+        <td class="feat">每日 30 秒微回報</td>
+        <td class="solv">用最簡單的選項收最真的資料,週末由系統翻成白話健康簡報。</td>
+      </tr>
+      <tr>
+        <td class="pain">「看到藥局架上一整面就放棄了。」</td>
+        <td class="feat">個人化單品月配</td>
+        <td class="solv">不必選 — 系統替你選,且選的理由有數據可回查。</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 06 WALKING BENEFITS -->
+<section id="walk">
+  <div class="eyebrow">05 ・ 走路的價值</div>
+  <h2>走路,不是運動,<br>是日常的健康儲蓄。</h2>
+  <p class="lead">我們把走路的科學好處,直接綁進每日 / 每週的回報指標 — 走得多,看得到改變。</p>
+  <div class="benefit-grid">
+    <div class="benefit"><div class="b-icon">❤️</div><div class="b-title">心血管</div><div class="b-desc">降低靜止心率、改善循環,對應每日心情與體力指標。</div></div>
+    <div class="benefit"><div class="b-icon">🌙</div><div class="b-title">睡眠品質</div><div class="b-desc">日間活動量提升,夜間深睡比例改善,對應睡眠回報。</div></div>
+    <div class="benefit"><div class="b-icon">🧠</div><div class="b-title">情緒與專注</div><div class="b-desc">釋放腦內啡、降低焦慮,對應每日精神與壓力指標。</div></div>
+    <div class="benefit"><div class="b-icon">🍃</div><div class="b-title">代謝與消化</div><div class="b-desc">促進腸道蠕動、穩定血糖,對應消化與體重變化欄位。</div></div>
+  </div>
+</section>
+
+<!-- 07 DAILY → WEEKLY -->
+<section id="report">
+  <div class="eyebrow">06 ・ 從每日到每週</div>
+  <h2>30 秒每日回報,<br>30 頁每週洞察。</h2>
+  <p class="lead">每日只問四個問題,週末把一週的點連成線 — 用戶第一次看見:原來走路真的有差。</p>
+  <div class="report-flow">
+    <div class="report-card daily">
+      <div class="label">DAILY ・ 每日</div>
+      <h3>30 秒微回報</h3>
+      <ul>
+        <li><span>步數同步</span><span>自動</span></li>
+        <li><span>今日精神狀態</span><span>1–5 分</span></li>
+        <li><span>睡眠品質</span><span>1–5 分</span></li>
+        <li><span>消化感受</span><span>1–5 分</span></li>
+        <li><span>體力評估</span><span>1–5 分</span></li>
+      </ul>
+      <div class="note" style="margin-top: 24px; font-size: 13px;">
+        快、簡、可量化 — 留存率的關鍵不是內容多,是門檻低。
+      </div>
+    </div>
+    <div class="arrow-mid">→</div>
+    <div class="report-card weekly">
+      <div class="label">WEEKLY ・ 每週</div>
+      <h3>個人化健康簡報</h3>
+      <ul>
+        <li><span>四維度趨勢圖</span><span>折線</span></li>
+        <li><span>行為連動分析</span><span>步數 × 感受</span></li>
+        <li><span>下週補給建議</span><span>動態</span></li>
+        <li><span>榮譽進度</span><span>距下一階差幾步</span></li>
+        <li><span>同類用戶對標</span><span>匿名分群</span></li>
+      </ul>
+      <div class="note" style="margin-top: 24px; font-size: 13px;">
+        把「我有沒有變好」這件事,從感覺變成資料。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 PERCEPTUAL MAP -->
+<section id="map">
+  <div class="eyebrow">07 ・ 市場差異化</div>
+  <h2>市場全景,<br>我們在<span style="color:var(--gold)">右上角的孤島</span>。</h2>
+  <p class="lead">藥局、電商、單方保健、大眾包裝品 — 全部擠在「制式 × 單次補充」的紅海裡。<br>步律生機是唯一同時做到「行為養成 × 個人化整合」的玩家。</p>
+
+  <div class="perceptual-wrap">
+    <svg class="perceptual-svg" viewBox="0 0 1100 700" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialgradient id="islandGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffd166" stop-opacity="0.55"></stop>
+          <stop offset="40%" stop-color="#d4a857" stop-opacity="0.25"></stop>
+          <stop offset="100%" stop-color="#d4a857" stop-opacity="0"></stop>
+        </radialgradient>
+        <radialgradient id="blobGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.55"></stop>
+          <stop offset="60%" stop-color="#1e3a8a" stop-opacity="0.25"></stop>
+          <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0"></stop>
+        </radialgradient>
+        <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+          <fegaussianblur stdDeviation="3"></fegaussianblur>
+        </filter>
+      </defs>
+
+      <!-- Quadrant subtle bg -->
+      <rect x="80" y="60" width="940" height="540" fill="rgba(255,255,255,0.015)" rx="8"></rect>
+
+      <!-- Grid lines -->
+      <line x1="80" y1="330" x2="1020" y2="330" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 4"></line>
+      <line x1="550" y1="60" x2="550" y2="600" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 4"></line>
+
+      <!-- Axes -->
+      <line x1="80" y1="600" x2="1020" y2="600" stroke="#a1a1a6" stroke-width="1.5"></line>
+      <line x1="80" y1="60" x2="80" y2="600" stroke="#a1a1a6" stroke-width="1.5"></line>
+
+      <!-- Axis arrows -->
+      <polygon points="1020,600 1010,595 1010,605" fill="#a1a1a6"></polygon>
+      <polygon points="80,60 75,70 85,70" fill="#a1a1a6"></polygon>
+
+      <!-- Axis labels -->
+      <text x="550" y="650" text-anchor="middle" fill="#f5f5f7" font-size="16" font-weight="600" letter-spacing="2">健康行為整合度  →</text>
+      <text x="120" y="40" fill="#f5f5f7" font-size="16" font-weight="600" letter-spacing="2">↑  個人化訂閱深度</text>
+
+      <text x="100" y="618" fill="#6e6e73" font-size="12">低</text>
+      <text x="1000" y="618" fill="#6e6e73" font-size="12" text-anchor="end">高</text>
+      <text x="60" y="595" fill="#6e6e73" font-size="12" text-anchor="middle">低</text>
+      <text x="60" y="80" fill="#6e6e73" font-size="12" text-anchor="middle">高</text>
+
+      <!-- Quadrant captions -->
+      <text x="310" y="330" text-anchor="middle" fill="#3b3b40" font-size="11" letter-spacing="3">RED OCEAN ・ 紅海</text>
+      <text x="310" y="105" text-anchor="middle" fill="#3b3b40" font-size="11" letter-spacing="3">過度設計 ・ 沒場景</text>
+      <text x="800" y="105" text-anchor="middle" fill="#3b3b40" font-size="11" letter-spacing="3">藍海領導區 ・ BLUE OCEAN</text>
+      <text x="800" y="555" text-anchor="middle" fill="#3b3b40" font-size="11" letter-spacing="3">通用工具 ・ 無訂閱</text>
+
+      <!-- BLUE BLOB — competitors clustered bottom-left -->
+      <ellipse cx="270" cy="490" rx="200" ry="105" fill="url(#blobGlow)" filter="url(#softBlur)"></ellipse>
+      <ellipse cx="270" cy="490" rx="170" ry="85" fill="rgba(59,130,246,0.18)" stroke="rgba(59,130,246,0.5)" stroke-width="1" stroke-dasharray="4 4"></ellipse>
+
+      <!-- Competitor dots (messy cluster) -->
+      <circle cx="200" cy="470" r="14" fill="#3b82f6" opacity="0.8"></circle>
+      <text x="200" y="475" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">藥局</text>
+
+      <circle cx="260" cy="445" r="14" fill="#60a5fa" opacity="0.8"></circle>
+      <text x="260" y="450" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">電商</text>
+
+      <circle cx="340" cy="465" r="14" fill="#2563eb" opacity="0.8"></circle>
+      <text x="340" y="470" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">單方</text>
+
+      <circle cx="220" cy="510" r="14" fill="#1d4ed8" opacity="0.8"></circle>
+      <text x="220" y="515" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">通路</text>
+
+      <circle cx="300" cy="525" r="14" fill="#3b82f6" opacity="0.85"></circle>
+      <text x="300" y="530" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">大牌</text>
+
+      <circle cx="370" cy="510" r="14" fill="#60a5fa" opacity="0.8"></circle>
+      <text x="370" y="515" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">代工</text>
+
+      <circle cx="170" cy="510" r="13" fill="#1e40af" opacity="0.8"></circle>
+      <text x="170" y="515" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">機能</text>
+
+      <circle cx="280" cy="490" r="13" fill="#3b82f6" opacity="0.85"></circle>
+      <text x="280" y="495" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">代購</text>
+
+      <text x="270" y="610" text-anchor="middle" fill="#60a5fa" font-size="13" font-weight="600" letter-spacing="2">傳統保健品市場 ・ 同質化紅海</text>
+
+      <!-- Generic walking apps - middle area -->
+      <circle cx="640" cy="510" r="12" fill="#6b7280" opacity="0.6"></circle>
+      <text x="640" y="535" text-anchor="middle" fill="#a1a1a6" font-size="11">通用步數 App</text>
+
+      <!-- Health subscription boxes -->
+      <circle cx="500" cy="280" r="12" fill="#a78bfa" opacity="0.55"></circle>
+      <text x="500" y="265" text-anchor="middle" fill="#a1a1a6" font-size="11">訂閱保健盒</text>
+
+      <!-- Tracker brands -->
+      <circle cx="700" cy="370" r="12" fill="#10b981" opacity="0.55"></circle>
+      <text x="700" y="395" text-anchor="middle" fill="#a1a1a6" font-size="11">穿戴追蹤</text>
+
+      <!-- THE ISLAND — 步律生機 -->
+      <circle cx="870" cy="180" r="120" fill="url(#islandGlow)"></circle>
+      <circle cx="870" cy="180" r="32" fill="#ffd166" stroke="#fff" stroke-width="2"></circle>
+      <circle cx="870" cy="180" r="48" fill="none" stroke="#ffd166" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.7"></circle>
+      <text x="870" y="184" text-anchor="middle" fill="#000" font-size="13" font-weight="700">步律</text>
+
+      <text x="870" y="135" text-anchor="middle" fill="#ffd166" font-size="18" font-weight="700" letter-spacing="2">步律生機</text>
+      <text x="870" y="115" text-anchor="middle" fill="#d4a857" font-size="11" letter-spacing="3">THE ISLAND</text>
+
+      <!-- Annotation line -->
+      <path d="M 905 195 Q 980 230, 1010 280" fill="none" stroke="#d4a857" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"></path>
+      <text x="950" y="305" fill="#d4a857" font-size="12" font-weight="500">行為養成 × 個人化整合</text>
+      <text x="950" y="322" fill="#d4a857" font-size="12" font-weight="500">的唯一玩家</text>
+
+    </svg>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#ffd166;box-shadow:0 0 12px #d4a857;"></div>步律生機 ・ 孤島</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#3b82f6;"></div>傳統保健品 ・ 同質化叢集</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a78bfa;"></div>訂閱保健盒</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div>穿戴追蹤裝置</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6b7280;"></div>通用步數 App</div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 COMPARISON TABLE -->
+<section id="compare">
+  <div class="eyebrow">08 ・ 功能比較</div>
+  <h2>同維度比較,<br>差距一目瞭然。</h2>
+  <p class="lead">把市場上四種主要競爭路徑,放在同一張表上比 — 沒有一個競品同時做到我們做的事。</p>
+  <div style="overflow-x: auto;">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width: 22%;">能力 / 維度</th>
+          <th class="us">步律生機</th>
+          <th class="t1">傳統保健品</th>
+          <th class="t2">通用步數 App</th>
+          <th class="t3">訂閱保健盒</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>個人化補給</td>
+          <td class="us">✓ 行為動態調整</td>
+          <td class="no">✗ 制式包裝</td>
+          <td class="no">✗ 無補給</td>
+          <td class="partial">△ 問卷一次性</td>
+        </tr>
+        <tr>
+          <td>每日健康量化回報</td>
+          <td class="us">✓ 30 秒微回報</td>
+          <td class="no">✗ 無</td>
+          <td class="partial">△ 只看步數</td>
+          <td class="no">✗ 無</td>
+        </tr>
+        <tr>
+          <td>每週趨勢洞察</td>
+          <td class="us">✓ 圖像化簡報</td>
+          <td class="no">✗ 無</td>
+          <td class="partial">△ 步數圖</td>
+          <td class="no">✗ 無</td>
+        </tr>
+        <tr>
+          <td>行為驅動折扣</td>
+          <td class="us">✓ 9 折 → 6 折</td>
+          <td class="no">✗ 無折扣</td>
+          <td class="no">✗ 無折扣</td>
+          <td class="partial">△ 固定折扣</td>
+        </tr>
+        <tr>
+          <td>留存綁定機制</td>
+          <td class="us">✓ 榮譽不歸零</td>
+          <td class="no">✗ 無黏著</td>
+          <td class="partial">△ 弱黏著</td>
+          <td class="partial">△ 月配慣性</td>
+        </tr>
+        <tr>
+          <td>用戶教育成本</td>
+          <td class="us">✓ 走路即懂</td>
+          <td class="no">✗ 高(成分)</td>
+          <td class="us">✓ 低</td>
+          <td class="no">✗ 中高</td>
+        </tr>
+        <tr>
+          <td>合規溝通設計</td>
+          <td class="us">✓ 七大方向內建</td>
+          <td class="no">✗ 容易踩線</td>
+          <td class="us">✓ 不涉療效</td>
+          <td class="partial">△ 視品牌</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 10 MARKET TEST -->
+<section id="test">
+  <div class="eyebrow">09 ・ 市場測試</div>
+  <h2>分三階段,<br>用真實用戶驗證真實意願。</h2>
+  <p class="lead">不靠想像、不靠焦點訪談 — 用實際付費、實際走路、實際留存,把 App 的成功定義成可量測的事。</p>
+  <div class="stage-grid">
+    <div class="stage s1">
+      <div class="stage-num">PHASE 01</div>
+      <h3>種子驗證</h3>
+      <div class="meta">100 位種子用戶 ・ 4 週免費試用 ・ 不收費</div>
+      <ul>
+        <li>App 開啟率 / 每日步數同步率</li>
+        <li>每日回報完成率(目標 ≥ 60%)</li>
+        <li>第 7 / 14 / 28 天留存(目標 50% / 35% / 25%)</li>
+        <li>NPS 與訪談語意分析</li>
+      </ul>
+      <div class="kpi">階段成功定義 ・ 28 天留存 ≥ 25%、NPS ≥ 30</div>
+    </div>
+    <div class="stage s2">
+      <div class="stage-num">PHASE 02</div>
+      <h3>付費驗證</h3>
+      <div class="meta">500 位早期付費用戶 ・ 8 週訂閱 ・ 收費啟動</div>
+      <ul>
+        <li>免費 → 付費轉換率(目標 ≥ 18%)</li>
+        <li>第 2 個月續訂率(目標 ≥ 70%)</li>
+        <li>折扣解鎖達成比例分布</li>
+        <li>客服請求數 / 退訂理由分類</li>
+      </ul>
+      <div class="kpi">階段成功定義 ・ 續訂率 ≥ 70%、平均榮譽達 8 折以上</div>
+    </div>
+    <div class="stage s3">
+      <div class="stage-num">PHASE 03</div>
+      <h3>規模驗證</h3>
+      <div class="meta">5,000+ 用戶 ・ 12 週 ・ 投放 + 自然成長</div>
+      <ul>
+        <li>LTV / CAC(目標 ≥ 3.0)</li>
+        <li>自然成長 vs 付費成長比例</li>
+        <li>個人化補給推薦的接受率</li>
+        <li>單位經濟模型回收期(月)</li>
+      </ul>
+      <div class="kpi">階段成功定義 ・ LTV/CAC ≥ 3.0、回收期 ≤ 6 個月</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 DISCOUNT MECHANISM -->
+<section id="discount">
+  <div class="eyebrow">10 ・ 訂閱折扣機制</div>
+  <h2>越走越省,<br>從九折一路解鎖到<span style="color:var(--gold)">最高榮譽六折</span>。</h2>
+  <p class="lead">不是固定折扣、不是會員等級 — 是用「行為」換折扣,折扣終身保留、永不歸零。</p>
+  <table class="discount-table">
+    <thead>
+      <tr>
+        <th style="width: 24%;">榮譽階段</th>
+        <th style="width: 26%;">達成條件</th>
+        <th style="width: 18%;">訂閱折扣</th>
+        <th>解鎖體驗</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge b1">啟程 ・ 七日達標</span></td>
+        <td>連續 7 天步數達標</td>
+        <td>
+          <strong style="font-size:18px;color:#fff;">9 折</strong>
+          <div class="discount-bar"><div style="width: 14%;"></div></div>
+        </td>
+        <td>解鎖第一份個人化補給推薦</td>
+      </tr>
+      <tr>
+        <td><span class="badge b2">入軌 ・ 兩週習慣</span></td>
+        <td>連續 14 天步數達標</td>
+        <td>
+          <strong style="font-size:18px;color:#fff;">85 折</strong>
+          <div class="discount-bar"><div style="width: 28%;"></div></div>
+        </td>
+        <td>解鎖每週圖像化健康簡報</td>
+      </tr>
+      <tr>
+        <td><span class="badge b3">恆星 ・ 一個月</span></td>
+        <td>30 天累積達標 ≥ 25 天</td>
+        <td>
+          <strong style="font-size:18px;color:#fff;">8 折</strong>
+          <div class="discount-bar"><div style="width: 42%;"></div></div>
+        </td>
+        <td>解鎖補給動態調整功能</td>
+      </tr>
+      <tr>
+        <td><span class="badge b4">深耕 ・ 兩個月</span></td>
+        <td>60 天累積達標 ≥ 50 天</td>
+        <td>
+          <strong style="font-size:18px;color:#fff;">75 折</strong>
+          <div class="discount-bar"><div style="width: 60%;"></div></div>
+        </td>
+        <td>解鎖同類用戶對標數據</td>
+      </tr>
+      <tr>
+        <td><span class="badge b5">蛻變 ・ 三個月</span></td>
+        <td>90 天累積達標 ≥ 75 天</td>
+        <td>
+          <strong style="font-size:18px;color:#fff;">7 折</strong>
+          <div class="discount-bar"><div style="width: 78%;"></div></div>
+        </td>
+        <td>解鎖一對一健康教練(線上)</td>
+      </tr>
+      <tr style="background: linear-gradient(90deg, rgba(212,168,87,0.08), rgba(244,63,94,0.06));">
+        <td><span class="badge b6">最高榮譽</span></td>
+        <td>連續 6 個月榮譽達標</td>
+        <td>
+          <strong style="font-size:22px;color:var(--gold);">6 折</strong>
+          <div class="discount-bar"><div style="width: 100%;"></div></div>
+        </td>
+        <td>終身保留 ・ 不歸零 ・ 可帶走推薦碼</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note">
+    <strong style="color: var(--gold-soft);">設計邏輯 ・</strong>
+    折扣的真正價值不是省錢,是「離開的成本」。用戶不會為了省小錢付費,但會為了不放棄已累積的榮譽繼續訂閱 — 這是訂閱黏著率的核心鎖。
+  </div>
+</section>
+
+<!-- 12 SAFE 7 DIRECTIONS -->
+<section id="safe">
+  <div class="eyebrow">11 ・ 合規溝通</div>
+  <h2>七大安全溝通方向,<br>讓品牌走得遠、走得穩。</h2>
+  <p class="lead">保健食品最大的成本不是行銷,是罰單。我們在產品語言、行銷文案、App 介面內建七道濾網,從第一天就把法遵風險擋在門外。</p>
+  <div class="safe-grid">
+    <div class="safe-card c1">
+      <div class="sn">01</div>
+      <h4>講行為,不講療效</h4>
+      <p>強調「養成走路習慣」「建立健康規律」,避開治療、改善疾病等用語。</p>
+      <div class="swap">
+        <div><span class="bad">幫助降血壓</span></div>
+        <div><span class="good">支持每日心血管保養習慣</span></div>
+      </div>
+    </div>
+    <div class="safe-card c2">
+      <div class="sn">02</div>
+      <h4>講感受,不講症狀</h4>
+      <p>用「精神」「體力」「睡眠品質」等主觀詞彙,取代具體醫學症狀。</p>
+      <div class="swap">
+        <div><span class="bad">改善失眠</span></div>
+        <div><span class="good">幫助維持良好的睡眠品質感受</span></div>
+      </div>
+    </div>
+    <div class="safe-card c3">
+      <div class="sn">03</div>
+      <h4>講成分,不講疾病</h4>
+      <p>說明成分的營養角色與一般作用,不直接連結到任何特定疾病或診斷。</p>
+      <div class="swap">
+        <div><span class="bad">預防糖尿病</span></div>
+        <div><span class="good">日常糖類代謝營養補給</span></div>
+      </div>
+    </div>
+    <div class="safe-card c4">
+      <div class="sn">04</div>
+      <h4>講補給,不講替代</h4>
+      <p>定位為「日常營養補充」,從不暗示可取代藥物、醫師建議或專業診斷。</p>
+      <div class="swap">
+        <div><span class="bad">取代降血脂藥物</span></div>
+        <div><span class="good">作為日常飲食外的營養補給</span></div>
+      </div>
+    </div>
+    <div class="safe-card c5">
+      <div class="sn">05</div>
+      <h4>講個人,不講群體</h4>
+      <p>用戶見證以「個人感受變化」呈現,避開「多數人」「九成人」等群體療效暗示。</p>
+      <div class="swap">
+        <div><span class="bad">90% 用戶睡得更好</span></div>
+        <div><span class="good">用戶 A 的四週個人感受紀錄</span></div>
+      </div>
+    </div>
+    <div class="safe-card c6">
+      <div class="sn">06</div>
+      <h4>講習慣,不講奇蹟</h4>
+      <p>強調「累積」「規律」「長期」,避開「立即」「快速」「驚人」等誇大字眼。</p>
+      <div class="swap">
+        <div><span class="bad">三天見效</span></div>
+        <div><span class="good">透過每日累積建立健康節奏</span></div>
+      </div>
+    </div>
+    <div class="safe-card c7">
+      <div class="sn">07</div>
+      <h4>講透明,不講黑箱</h4>
+      <p>所有推薦邏輯與資料來源公開可查,內建禁用詞自動檢核,法務雙審後才能上線。</p>
+      <div class="swap">
+        <div><span class="bad">獨家秘方 ・ 神奇配方</span></div>
+        <div><span class="good">配方依據 + 法規檢核通過</span></div>
+      </div>
+    </div>
+    <div class="safe-card" style="background: linear-gradient(135deg, rgba(212,168,87,0.12), rgba(244,63,94,0.06)); border: 1px solid rgba(212,168,87,0.3);">
+      <div class="sn" style="background: linear-gradient(135deg, #fff, var(--gold)); -webkit-background-clip: text; background-clip: text;">✓</div>
+      <h4 style="color: var(--gold-soft);">給投資人的承諾</h4>
+      <p style="color: var(--text);">每一句行銷文案、每一個 App 介面字串,皆經過七大方向審核 + 法務複查。</p>
+      <div class="swap" style="background: rgba(0,0,0,0.3); margin-top: 14px;">
+        <div style="color: var(--gold-soft);">不會因為走得快,被罰單追上。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 CLOSING -->
+<section class="closing" id="closing">
+  <div class="eyebrow">12 ・ 一句話定位</div>
+  <div class="quote">
+    「<span class="accent">走得越多,省得越多</span>。<br>
+    步律生機,讓保健從吞下去,變成<span class="accent">走出來</span>。」
+  </div>
+  <div class="author">— 步律生機 ・ Investor Pitch ・ 2026</div>
+</section>
+
+<footer>
+  © 2026 步律生機 BU LU SHENG JI ・ 投資人簡報文件 ・ 機密內部使用
+</footer>
+
+
+
+</body></html>
